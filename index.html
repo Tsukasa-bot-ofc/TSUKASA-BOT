@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>V.H. Bot - Alugue seu Bot de Figurinhas</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+  <style>
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+
+      font-family: 'Rubik', sans-serif;
+
+      background: linear-gradient(to right, #ff9ebd, #ffc3d6);
+
+      color: #3d3d3d;
+
+    }
+
+    header {
+
+      background-color: #fff;
+
+      padding: 3rem 1rem 2rem;
+
+      text-align: center;
+
+      border-bottom: 5px solid #ff6fa3;
+
+    }
+
+    header h1 {
+
+      font-size: 2.8rem;
+
+      color: #ff4d88;
+
+    }
+
+    header p {
+
+      font-size: 1.2rem;
+
+      color: #444;
+
+      max-width: 700px;
+
+      margin: 1rem auto 0;
+
+    }
+
+    .container {
+
+      max-width: 1000px;
+
+      margin: 2rem auto;
+
+      padding: 1rem;
+
+    }
+
+    .section {
+
+      background-color: #fff;
+
+      margin-bottom: 2rem;
+
+      padding: 2rem;
+
+      border-radius: 20px;
+
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    }
+
+    .section h2 {
+
+      color: #ff3e78;
+
+      text-align: center;
+
+      margin-bottom: 1.5rem;
+
+      font-size: 2rem;
+
+    }
+
+    .section p, .section ul {
+
+      font-size: 1rem;
+
+      line-height: 1.7;
+
+      color: #555;
+
+    }
+
+    .section ul {
+
+      list-style: none;
+
+      padding-left: 1rem;
+
+    }
+
+    .section ul li {
+
+      margin-bottom: 0.7rem;
+
+      position: relative;
+
+      padding-left: 1.5rem;
+
+    }
+
+    .section ul li::before {
+
+      content: "➟";
+
+      position: absolute;
+
+      left: 0;
+
+      top: 0;
+
+    }
+
+    .plans {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+      gap: 1.5rem;
+
+      margin-top: 2rem;
+
+    }
+
+    .plan {
+
+      background: #ffe0eb;
+
+      border: 2px solid #ff6fa3;
+
+      padding: 1.5rem;
+
+      width: 250px;
+
+      text-align: center;
+
+      border-radius: 15px;
+
+      transition: 0.3s;
+
+      cursor: pointer;
+
+    }
+
+    .plan:hover {
+
+      transform: scale(1.05);
+
+      box-shadow: 0 0 12px rgba(255, 79, 136, 0.4);
+
+    }
+
+    .plan input {
+
+      display: none;
+
+    }
+
+    .plan h3 {
+
+      font-size: 1.4rem;
+
+      margin-bottom: 0.5rem;
+
+      color: #ff4081;
+
+    }
+
+    .plan p {
+
+      font-size: 1.2rem;
+
+      font-weight: bold;
+
+    }
+
+    .whatsapp-btn {
+
+      display: block;
+
+      width: fit-content;
+
+      margin: 2rem auto 0;
+
+      background-color: #25d366;
+
+      color: white;
+
+      text-decoration: none;
+
+      padding: 1rem 2rem;
+
+      border-radius: 30px;
+
+      font-weight: bold;
+
+      font-size: 1.1rem;
+
+      transition: 0.3s;
+
+    }
+
+    .whatsapp-btn:hover {
+
+      background-color: #1ebe5d;
+
+    }
+
+    .about {
+
+      font-style: italic;
+
+      color: #777;
+
+      text-align: center;
+
+      margin-top: 1rem;
+
+    }
+
+    .faq-item {
+
+      margin-bottom: 1rem;
+
+      border-bottom: 1px solid #ffc3d6;
+
+      padding-bottom: 1rem;
+
+    }
+
+    .faq-question {
+
+      font-size: 1.1rem;
+
+      color: #ff4d88;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+      position: relative;
+
+      padding-right: 20px;
+
+    }
+
+    .faq-question::after {
+
+      content: "+";
+
+      position: absolute;
+
+      right: 0;
+
+      top: 0;
+
+      color: #ff4d88;
+
+      font-weight: bold;
+
+      transition: transform 0.3s;
+
+    }
+
+    .faq-question.active::after {
+
+      content: "-";
+
+      transform: rotate(180deg);
+
+    }
+
+    .faq-answer {
+
+      max-height: 0;
+
+      overflow: hidden;
+
+      transition: max-height 0.5s ease, padding 0.3s ease;
+
+      font-size: 0.95rem;
+
+      color: #555;
+
+      padding-top: 0;
+
+    }
+
+    .faq-answer.open {
+
+      padding-top: 0.5rem;
+
+      max-height: 200px;
+
+    }
+
+    footer {
+
+      text-align: center;
+
+      padding: 2rem 1rem;
+
+      font-size: 0.9rem;
+
+      background-color: #fff;
+
+      border-top: 2px solid #ff6fa3;
+
+      color: #666;
+
+    }
+
+    @media (max-width: 768px) {
+
+      .plans {
+
+        flex-direction: column;
+
+        align-items: center;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <img src="https://blackstorage.store/midia/1744086956634.jpg" alt="Banner" style="width: 100%; display: block;">
+
+  <header>
+
+    <h1>TSUKASA BOT MD</h1>
+
+    <p>Está procurando por uma bot 24hr on e completa para seu grupo?? Então conheça a Tsukasa bot.
+
+ela cuida do seu grupo, diverte os membros e ainda oferece comandos para criar figurinhas, baixar músicas e vídeos, comandos úteis e muito mais.</p>
+
+  </header>
+
+  <main class="container">
+
+    <section class="section">
+
+      <h2>Como Funciona a Tsukasa?</h2>
+
+      <p>Você aluga a Tsukasa Bot e recebe acesso imediato a uma "key", ao colocar essa key no seu grupo a bot será ativada automaticamente, lembrando que ela tem que ser administradora do grupo, Você terá direito a suporte 24h, a bot é configurada e mantida por mim, garantindo estabilidade, segurança e muita zoeira garantida para seu grupo.</p>
+
+    </section>
+
+    <section class="section">
+
+      <h2>O que a Tsukasa Faz?</h2>
+
+      <ul>
+
+        <li>Cria figurinhas com fotos, vídeos e texto</li>
+
+        <li>Baixa músicas e vídeos do: YouTube, tiktok e entre outros</li>
+
+        <li>Muitos comandos para brincar e zoar no seu grupo</li>
+
+        <li>Funções especiais para admin no seu grupo</li>
+
+        <li>Anti links, palavrões, audios e entre outros </li>
+
+        <li>E entre outros 1000 comandos para você poder testar e se divertir.</li>
+
+      </ul>
+
+    </section>
+
+    <section class="section">
+
+      <h2>Aluguel para Grupos</h2>
+
+      <form id="form-plano">
+
+        <div class="plans">
+
+          <label class="plan">
+
+            <input type="radio" name="plano" value="15 dias" />
+
+            <h3>15 Dias</h3>
+
+            <p>R$ 10,00</p>
+
+          </label>
+
+          <label class="plan">
+
+            <input type="radio" name="plano" value="1 mês (30 dias)" />
+
+            <h3>1 Mês</h3>
+
+            <p>R$ 15,00</p>
+
+          </label>
+
+          <label class="plan">
+
+            <input type="radio" name="plano" value="2 meses (60 dias)" />
+
+            <h3>2 Meses</h3>
+
+            <p>R$ 30,00</p>
+
+          </label>
+
+          <label class="plan">
+
+            <input type="radio" name="plano" value="3 meses (90 dias)" />
+
+            <h3>3 Meses</h3>
+
+            <p>R$ 45,00</p>
+
+          </label>
+
+          <label class="plan">
+
+            <input type="radio" name="plano" value="4 meses (120 dias)" />
+
+            <h3>4 Meses</h3>
+
+            <p>R$ 60,00</p>
+
+          </label>
+
+          <label class="plan">
+
+            <input type="radio" name="plano" value="Vitalício" />
+
+            <h3>Vitalício</h3>
+
+            <p>R$ 100,00</p>
+
+          </label>
+
+        </div>
+
+        <a id="alugar" href="#" class="whatsapp-btn">Quero Alugar Agora</a>
+
+      </form>
+
+    </section>
+
+    <section class="section">
+
+      <h2>Perguntas Frequentes (FAQ)</h2>
+
+      <div class="faq-item">
+
+        <div class="faq-question">O bot pode banir meu número?</div>
+
+        <div class="faq-answer">Não! O bot não tem como banir seu WhatsApp, porque ele usa outro número. Ou seja, sem risco nenhum.</div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <div class="faq-question">Preciso instalar algo?</div>
+
+        <div class="faq-answer">Nada! Você só precisa salvar o número do bot e chamar no WhatsApp. Tudo acontece por lá.</div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <div class="faq-question">Posso usar o bot em mais de um grupo?</div>
+
+        <div class="faq-answer">Sim! Dá pra usar o bot em vários grupos, mas cada key é única. Então, pra cada grupo, você vai precisar alugar uma key diferente.</div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <div class="faq-question">Tem suporte se der algum problema?</div>
+
+        <div class="faq-answer">Claro! O suporte é direto comigo, pelo WhatsApp. Qualquer dúvida ou erro, só chamar que eu resolvo.</div>
+
+      </div>
+
+      <div class="faq-item">
+
+        <div class="faq-question">O pagamento é seguro?</div>
+
+        <div class="faq-answer">Sim, o pagamento é 100% seguro. Você faz o Pix, manda o comprovante, eu coloco o saldo e aí é só comprar a key direto no bot, tudo automático. Sem risco, simples e rapidão.</div>
+
+      </div>
+
+    </section>
+
+    <p class="about">Desenvolvido por V.H Domina</p>
+
+  </main>
+
+  <footer>
+
+    &copy; 2025 - V.H Domina • Todos os direitos reservados
+
+  </footer>
+
+  <script>
+
+    const questions = document.querySelectorAll('.faq-question');
+
+    questions.forEach(q => {
+
+      q.addEventListener('click', () => {
+
+        const answer = q.nextElementSibling;
+
+        q.classList.toggle('active');
+
+        answer.classList.toggle('open');
+
+      });
+
+    });
+
+    document.getElementById('alugar').addEventListener('click', function (e) {
+
+      e.preventDefault();
+
+      const planoSelecionado = document.querySelector('input[name="plano"]:checked');
+
+      if (!planoSelecionado) {
+
+        alert('Selecione um plano primeiro');
+
+        return;
+
+      }
+
+      const plano = planoSelecionado.value;
+
+      const mensagem = encodeURIComponent(`Olá, quero alugar a tsukasa bot por ${plano}`);
+
+      const numero = '558598261859';
+
+      window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+
+    });
+
+  </script>
+
+</body>
+
+</html>
+<!-- partial -->
+  
+</body>
+</html>
